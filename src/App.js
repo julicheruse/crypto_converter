@@ -1,11 +1,17 @@
-// import logo from "./logo.svg";
 import "./App.css";
+import React from "react";
+import { Provider } from "react-redux";
+import store from "./store.js";
+import ExchangeSelect from "./Components/Select";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Pesos Crypto Converter</h1>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <h1>Pesos Crypto Converter</h1>
+        <ExchangeSelect />
+      </div>
+    </Provider>
   );
 }
 
