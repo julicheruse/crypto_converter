@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPrice } from "../actions/Change";
 import { selectCurrency } from "../actions/Currencies";
 
 export default function CurrencySelect() {
   const dispatch = useDispatch();
   const currencies = useSelector((state) => state.Currencies.currencies);
-  const exchange = useSelector((state) => state.Exchanges.exchangeSelected);
   const selectedCurrency = useSelector(
     (state) => state.Currencies.currencySelected.key
   );

@@ -14,11 +14,11 @@ export default function DisplayPrice() {
 
   useEffect(() => {
     dispatch(getPrice(selectedExchange, selectedCurrency, 1));
-  }, [selectedCurrency, selectedExchange]);
+  }, [dispatch, selectedCurrency, selectedExchange]);
   return (
     <div>
-      <p>Venta {price && price.bid}</p>
-      <p>Compra {price && price.ask}</p>
+      <p>Venta: {price && price.bid}</p>
+      <p>Compra: {price && price.ask}</p>
     </div>
   );
 }
