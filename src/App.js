@@ -4,6 +4,8 @@ import { Provider } from "react-redux";
 import store from "./store.js";
 import ExchangeSelect from "./Components/exchangeSelect";
 import CurrencySelect from "./Components/currencySelect";
+import InputQuantity from "./Components/inputQuantity";
+import DisplayPrice from "./Components/displayPrice";
 
 function App() {
   return (
@@ -18,6 +20,12 @@ function App() {
           Selecciona la cripto
           <CurrencySelect />
         </span>
+        <p>Cotización actual:</p>
+        <DisplayPrice />
+        <div>
+          <p>Ingresa la cantidad a cambiar</p>
+          <InputQuantity />
+        </div>
       </div>
     </Provider>
   );

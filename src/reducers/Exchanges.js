@@ -8,6 +8,7 @@ const initialState = {
     { key: "satoshitango", name: "Satoshi Tango" },
   ],
   exchangeSelected: "argenbtc",
+  price: [],
 };
 
 export default (state = initialState, action) => {
@@ -16,6 +17,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         exchangeSelected: action.payload,
+      };
+    case "GET_PRICE":
+      return {
+        ...state,
+        price: action.payload,
       };
 
     default:

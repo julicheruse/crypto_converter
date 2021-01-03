@@ -7,7 +7,7 @@ const initialState = {
     { key: "usdt", name: "Tether (USDT)" },
     { key: "usdc", name: "USDCoin (USDC)" },
   ],
-  currencySelected: "btc",
+  currencySelected: { key: "btc", name: "Bitcoin (BTC)" },
 };
 
 export default (state = initialState, action) => {
@@ -15,7 +15,9 @@ export default (state = initialState, action) => {
     case "SELECT_CRYPTO":
       return {
         ...state,
-        currencySelected: action.payload,
+        currencySelected: state.currencies.filter(
+          (c) => c.key === action.payload
+        )[0],
       };
 
     default:
