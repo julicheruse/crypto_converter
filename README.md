@@ -8,7 +8,7 @@ First download the repo, (go to the code button, copy the URL, clone it in your 
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm install`
 
 Installs the required dependencies to run de project
 
