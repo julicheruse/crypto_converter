@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getPrice } from "../actions/Change";
+import { getPrice } from "../actions/Convert";
 
 export default function DisplayPrice() {
   const dispatch = useDispatch();
@@ -17,8 +17,8 @@ export default function DisplayPrice() {
   }, [dispatch, selectedCurrency, selectedExchange]);
   return (
     <div>
-      <p>Venta: {price && price.bid}</p>
-      <p>Compra: {price && price.ask}</p>
+      <p>Vendes a: {price && price.bid}</p>
+      <p>Compras a: {price && price.ask}</p>
     </div>
   );
 }

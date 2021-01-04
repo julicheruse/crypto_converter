@@ -23,7 +23,6 @@ function App() {
         <p>Cotización actual:</p>
         <DisplayPrice />
         <div>
-          <p>Ingresa la cantidad a cambiar</p>
           <InputQuantity />
         </div>
       </div>
