@@ -19,3 +19,8 @@ export function changeCrypto(coin) {
     dispatch({ type: "CHANGE_CRYPTO", payload: coin });
   };
 }
+export function changeFiat(fiat) {
+  return (dispatch) => {
+    dispatch({ type: "CHANGE_FIAT", payload: fiat });
+  };
+}

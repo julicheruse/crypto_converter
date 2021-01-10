@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeCrypto, toggleBuy } from "../actions/Convert";
+import { changeCrypto, changeFiat, toggleBuy } from "../actions/Convert";
 
 export default function InputQuantity() {
   const dispatch = useDispatch();
@@ -9,13 +9,19 @@ export default function InputQuantity() {
   );
   const intention = useSelector((state) => state.Convert.intention);
   const coinToFIAT = useSelector((state) => state.Convert.criptoToFIAT);
+  const FIATToCrypto = useSelector((state) => state.Convert.FIATToCrypto);
 
   const handleClick = (event) => {
     dispatch(toggleBuy());
+
     event.preventDefault();
   };
-  const handleChange = (e) => {
-    console.log(e.target.value);
+  const handleFIATChange = (e) => {
+    console.log(e);
+    dispatch(changeFiat(e.target.value));
+  };
+  const handleCoinChange = (e) => {
+    console.log(e);
     dispatch(changeCrypto(e.target.value));
   };
 
@@ -28,15 +34,19 @@ export default function InputQuantity() {
         </button>
       </p>
       <input
+        name="coin"
         type="number"
-        placeholder={`Cantidad de ${selectedCurrency.key.toUpperCase()}`}
-        onChange={handleChange}
+        placeholder="Cantidad de ARS"
+        value={FIATToCrypto === "" ? "" : FIATToCrypto}
+        onChange={handleCoinChange}
       />
       Son
       <input
+        name="fiat"
         type="number"
-        placeholder="Cantidad de ARS"
+        placeholder={`Cantidad de ${selectedCurrency.key.toUpperCase()}`}
         value={coinToFIAT === "" ? "" : coinToFIAT}
+        onChange={handleFIATChange}
       />
     </form>
   );

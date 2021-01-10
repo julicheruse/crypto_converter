@@ -22,12 +22,20 @@ export default (state = initialState, action) => {
     case "CHANGE_CRYPTO":
       return {
         ...state,
-        criptoToFIAT: action.payload * state.price.data.ask,
+        criptoToFIAT:
+          state.intention === "buy"
+            ? action.payload / state.price.data.ask
+            : action.payload / state.price.data.bid,
+        FIATToCrypto: action.payload,
       };
     case "CHANGE_FIAT":
       return {
         ...state,
-        FIATToCrypto: action.payload,
+        criptoToFIAT: action.payload,
+        FIATToCrypto:
+          state.intention === "buy"
+            ? action.payload * state.price.data.ask
+            : action.payload * state.price.data.bid,
       };
 
     default:
